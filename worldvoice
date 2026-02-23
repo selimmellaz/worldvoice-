@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorldVoice</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: #1e2a38;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.post {
+    background: white;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<header>🌍 WorldVoice</header>
+
+<div class="container">
+    <h2>Share Your Opinion</h2>
+    <textarea id="postInput" placeholder="Write your opinion about a world political issue..."></textarea>
+    <br>
+    <button onclick="addPost()">Publish</button>
+
+    <div id="posts"></div>
+</div>
+
+<script>
+function addPost() {
+    const input = document.getElementById("postInput");
+    const text = input.value.trim();
+
+    if (text === "") {
+        alert("Please write something.");
+        return;
+    }
+
+    const postDiv = document.createElement("div");
+    postDiv.className = "post";
+    postDiv.textContent = text;
+
+    document.getElementById("posts").prepend(postDiv);
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
